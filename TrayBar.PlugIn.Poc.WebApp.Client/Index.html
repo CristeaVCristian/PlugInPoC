@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html ng-app="webApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Tray bar Plug-in PoC</title>
+</head>
+<body>
+    <div ng-controller="fileManagementController">
+        <h1>Tray bar Plug-in file management PoC</h1>
+        <h2>First please select de port number of the api</h2>
+        Port Number: <input type="text" ng-model="portNumber"><br>
+        <div>
+            <div>
+                <button ng-click="getData()">Get documents</button>
+            </div>
+            <ukl>
+                <li ng-repeat="document in documents">
+                    <a href="http://localhost:{{portNumber}}/DownloadDocument?fileName={{document}}">{{document}}</a>
+                </li><br />
+            </ukl>
+        </div>
+        <hr />
+        File name: <input type="text" ng-model="fileName"><br>
+
+        File description: <input type="text" ng-model="fileDescription"> <br><br>
+
+        <input type="file" file-model="myFile" /><button ng-click="uploadFile()">Upload</button><br>
+            
+        <a href="http://localhost:{{portNumber}}/DownloadDocument?fileName={{fileNameResponse}}">{{fileNameResponse}}</a>
+    </div>
+</body>
+<script src="Scripts/angular.js"></script>
+<script src="Scripts/angular.min.js"></script>
+<script src="App/app.js"></script>
+<script src="App/Controllers/file.management.controller.js"></script>
+<script src="App/Directives/file.upload.directive.js"></script>
+<script src="App/Services/api.service.js"></script>
+</html>
