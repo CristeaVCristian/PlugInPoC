@@ -38,7 +38,10 @@ namespace TrayBar.PlugIn.PoC.Api.Handlers
                     fileName.Append(await content.ReadAsStringAsync());
                 }
 
-            fileEntity.Name = ComputeSha256Hash(fileName.ToString()) + fileEntity?.Extension;
+            var streamReader = new StreamReader(fileEntity.Stream);
+            var fileContent = streamReader.ReadToEnd();
+
+            fileEntity.Name = ComputeSha256Hash(fileName + fileContent) + fileEntity?.Extension;
 
             using (var fs = File.Create(Path.Combine(this.serverPath, fileEntity.Name)))
             {
