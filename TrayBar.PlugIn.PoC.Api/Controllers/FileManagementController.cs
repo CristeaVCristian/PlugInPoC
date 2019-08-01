@@ -38,9 +38,13 @@ namespace TrayBar.PlugIn.PoC.Api.Controllers
                 result.Content.Headers.ContentDisposition =
                     new ContentDispositionHeaderValue("attachment") { FileName = fileName };
             }
-            catch (Exception)
+            catch (FileNotFoundException)
             {
                 return this.Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            catch (Exception)
+            {
+                return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
 
             return result;
