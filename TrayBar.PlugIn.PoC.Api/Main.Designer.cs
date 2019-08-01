@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lblStatusDispaly = new System.Windows.Forms.Label();
             this.lblVersionDisplay = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnOpenConfiguration = new System.Windows.Forms.Button();
+            this.NotifyIconPlugInPoC = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // lblStatusDispaly
@@ -99,6 +102,12 @@
             this.btnOpenConfiguration.UseVisualStyleBackColor = true;
             this.btnOpenConfiguration.Click += new System.EventHandler(this.btnOpenConfiguration_Click);
             // 
+            // NotifyIconPlugInPoC
+            // 
+            this.NotifyIconPlugInPoC.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIconPlugInPoC.Icon")));
+            this.NotifyIconPlugInPoC.Text = "PlugIn-PoC";
+            this.NotifyIconPlugInPoC.Visible = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +134,7 @@
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnOpenConfiguration;
+        private System.Windows.Forms.NotifyIcon NotifyIconPlugInPoC;
     }
 }
 
